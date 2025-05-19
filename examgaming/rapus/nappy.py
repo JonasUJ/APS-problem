@@ -61,7 +61,7 @@ value2 = matrix[pointer_row-1][timelimit]
 value3 = matrix[pointer_row-2][timelimit]
 print(max(value1,value2,value3))
 
-#printing the best problems from the best solution:
+#printing the chosen soltuion from path:
 while timelimit > 0: 
     prev_group_row = pointer_row-3
     #the best solution for the current group
@@ -89,7 +89,6 @@ while timelimit > 0:
             timelimit -= matrix[pointer_row-2][-1]
         
     pointer_row -= 3
-
 
 #shows the 
 for row in range(len(matrix)):
