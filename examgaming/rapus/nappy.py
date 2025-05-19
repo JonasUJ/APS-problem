@@ -10,7 +10,7 @@ for _ in range(n):
     kattisproblems[k].append([m, int(p), int(t)])
 
 number_problems = len(kattisproblems)
-matrix = [[0] * (timelimit + 1) for _ in range((number_problems)*3 + 3)]
+matrix = [[0] * (timelimit + 4) for _ in range((number_problems)*3 + 3)]
 
 pointer_row = 2  # Current row index
 prev_group_row = 0  # Last completed group row index
@@ -20,10 +20,14 @@ for k in kattisproblems:
     while len(methods) < 3:
         methods.append(["x", 0, 0])
 
-    group_start_row = pointer_row + 1  # First row for this group
-
     for m, p, t in methods:
         pointer_row += 1  # Go to next row
+       
+        #adding problem id and weight to end of row
+        matrix[pointer_row][-1] = t
+        matrix[pointer_row][-2] = m
+        matrix[pointer_row][-3] = k
+        
         for w in range(1, timelimit + 1):
             if t > w:
             
@@ -49,13 +53,46 @@ for k in kattisproblems:
     # After this group, update reference to latest group
     prev_group_row = pointer_row
 
+
+
 # Result is in matrix[pointer_row][timelimit]
 value1 = matrix[pointer_row][timelimit]
 value2 = matrix[pointer_row-1][timelimit]
 value3 = matrix[pointer_row-2][timelimit]
 print(max(value1,value2,value3))
+
+#printing the best problems from the best solution:
+while timelimit > 0: 
+    prev_group_row = pointer_row-3
+    #the best solution for the current group
+    value1 = matrix[pointer_row][timelimit]
+    value2 = matrix[pointer_row-1][timelimit]
+    value3 = matrix[pointer_row-2][timelimit]
+    best = max(value1,value2,value3)
+
+    #check if it has been used in the final solution
+    value1_prev = matrix[prev_group_row][timelimit]
+    value2_prev = matrix[prev_group_row-1][timelimit]
+    value3_prev = matrix[prev_group_row-2][timelimit]
+    best_prev = max(value1_prev,value2_prev,value3_prev)
+    
+    #it has been used
+    if best > best_prev:
+        if value1 == best:
+            print(matrix[pointer_row][-3] + " " + matrix[pointer_row][-2])
+            timelimit -= matrix[pointer_row][-1]
+        elif value2 == best: 
+            print(matrix[pointer_row-1][-3] + " " + matrix[pointer_row-1][-2])
+            timelimit -= matrix[pointer_row-1][-1]
+        elif value3 == best:
+            print(matrix[pointer_row-2][-3] + " " + matrix[pointer_row-2][-2])
+            timelimit -= matrix[pointer_row-2][-1]
+        
+    pointer_row -= 3
+
+
+#shows the 
 for row in range(len(matrix)):
     print(matrix[row])
     
-        
 
