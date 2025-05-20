@@ -1,22 +1,24 @@
-\problemname{}
+\problemname{Exam Gaming}
+Rasmus, Magnus, and Jonas have an upcoming exam in Algorithmic Problem Solving with their professor Martin. For their exam, they have been given a list of Kattis\footnote{An online programming problem solving platform with a big community and numerous problems} problems and have to solve a number of them. They all consider themselves Kattis experts and hence are not concerned about their ability to solve all the problems. This has, however, led them to spend their time doing anything but solving problems. Now, less than a week before the deadline, when they have actually started looking at the pure amount of Kattis problems, they find that they have completely underestimated the workload.
 
-%\illustration{0.3}{image.jpg}{
-%    Caption of the illustration (optional).
-%    CC BY-SA 4.0 by X on \href{https://example.com/reference-to-image}{Y}
-%}
+With only 100 hours before deadline, it is now clear to them how unlikely it is that they will have time to complete all the problems in time. Yet, being the industrious students they obviously are, they have decided to make a ranking of each problem, as well as an estimate of how long it will take them to solve. Specifically, in an attempt please Martin (so that he doesn't notice that not all the problems are solved), the ranking represents the groups guess at how happy a solution to the problem will make Martin. 
 
-Rasmus, Magnus and Jonas have an upcoming exam in Algorithmic Problem Solving. 
+The group have different ideas for methods they can use to solve the Kattis excercises. For example, they could make a fast brute-force solution, but a dynamic programming solution, that takes longer time to implement, would make Martin happier. It will not make Martin any happier, if they solve the same Kattis problem twice or thrice using different methods. 
 
+The group is very tight-knit and can only work on one problem at a time, all together. They need to figure out how many happy-points they can achieve before the deadline
 
-\begin{Input}
-    The input consists of:
-    \begin{itemize}
-        \item One line with an integer $a$ ($0\leq a\leq \maxa$), the area of the square.
-    \end{itemize}
-\end{Input}
+\section*{Input}
+The first line of input contains an integer $n$, $1\leq n\leq 100000$
+The following $N$ lines contains $K$, $M$, $P$ and $T$. 
+\begin{itemize}
+    \item $K$ is the name of the Kattis problem. It is a single word and only uses characters a–z, no longer than 100 characters
+    \item  $M$ is the name of the algorithm used to solve the Kattis problem. It is a single word and only uses characters a–z, no longer than 100 characters
+    \item  $P$ is an integer between $1\leq N\leq 100$, which is the happy-points they get from solving the Kattis problem with the given method.
+    \item $T$ is an integer between $1\leq N\leq 100$, which is the amount of hours it takes to solve the Kattis problem, with the given method.
+\end{itemize}
+Each Kattis problem can at most have 3 different methods of being solved.
 
-\begin{Output}
-    Output the perimeter of the square with area $a$.
-
-    Your answer should have an absolute or relative error of at most $10^{-6}$.
-\end{Output}
+\section*{Output}
+A single integer of the number of fingers/toes/hoves you see greeted with
+Your program should find the best possible combination of problems such that the sum of all points $P$ is the highest possible value, while staying within the time limit.
+Output a single integer of the most amount of points the group can archive within the time limit.

@@ -1,14 +1,14 @@
 # Specification: https://icpc.io/problem-package-format/spec/2023-07-draft.html
-problem_format_version: 2023-07-draft
+#problem_format_version: 2023-07-draft
 # 'pass-fail', 'interactive', 'multi-pass', or 'interactive multi-pass'
 type: pass-fail
-name:
-  #lang: name
-  en: Exam Gaming
+name: Exam Gaming
+ # lang: name
+  # en: 
 uuid: 8ee7605a-f919-886d-336c-f53236d4cac5
-credits: jouj & brml & rhra
+#credits: jouj & brml & rhra
 source:
-  name: APS 2025
+  name: Exam Gaming
   #url:
 license: cc by-sa
 rights_owner: author

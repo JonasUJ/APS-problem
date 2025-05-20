@@ -1,6 +1,6 @@
 kattisproblems = {}
 
-timelimit = 10
+timelimit = 100
 n = int(input())
 
 for _ in range(n):
@@ -10,7 +10,7 @@ for _ in range(n):
     kattisproblems[k].append([m, int(p), int(t)])
 
 number_problems = len(kattisproblems)
-matrix = [[0] * (timelimit + 4) for _ in range((number_problems)*3 + 3)]
+matrix = [[0] * (timelimit + 1) for _ in range((number_problems)*3 + 3)]
 
 pointer_row = 2  # Current row index
 prev_group_row = 0  # Last completed group row index
@@ -18,19 +18,19 @@ prev_group_row = 0  # Last completed group row index
 for k in kattisproblems:
     methods = kattisproblems[k]
     while len(methods) < 3:
-        methods.append(["x", 0, 0])
+        methods.append(["x", 0, 101]) 
 
     for m, p, t in methods:
         pointer_row += 1  # Go to next row
        
         #adding problem id and weight to end of row
-        matrix[pointer_row][-1] = t
-        matrix[pointer_row][-2] = m
-        matrix[pointer_row][-3] = k
+        #matrix[pointer_row][-1] = t
+        #matrix[pointer_row][-2] = m
+        #matrix[pointer_row][-3] = k
         
         for w in range(1, timelimit + 1):
             if t > w:
-            
+                
                 value1 = matrix[prev_group_row][w]
                 value2 = matrix[prev_group_row-1][w]
                 value3 = matrix[prev_group_row-2][w]
@@ -38,6 +38,7 @@ for k in kattisproblems:
                 matrix[pointer_row][w] = best
 
             else:
+                
                 value1_with = matrix[prev_group_row][w - t]
                 value2_with = matrix[prev_group_row -1][w - t]
                 value3_with = matrix[prev_group_row -2][w - t]   
@@ -61,6 +62,7 @@ value2 = matrix[pointer_row-1][timelimit]
 value3 = matrix[pointer_row-2][timelimit]
 print(max(value1,value2,value3))
 
+"""
 #printing the chosen soltuion from path:
 while timelimit > 0: 
     prev_group_row = pointer_row-3
@@ -94,4 +96,4 @@ while timelimit > 0:
 for row in range(len(matrix)):
     print(matrix[row])
     
-
+"""
