@@ -1,4 +1,7 @@
-3
-piano networkflow 2 10
-buzzwords stringhashing 4 20
-barshelf fenwicktree 1 5
+6
+piano networkflow 100 10
+piano bruteforce 10 1
+buzzwords stringhashing 200 5
+buzzwords bruteforce 10 1
+barshelf fenwicktree 50 4
+barshelf bruteforce 10 1
