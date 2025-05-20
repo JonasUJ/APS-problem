@@ -1,6 +1,6 @@
 import sys
 import string
-"""
+
 try:
     alpha = set(string.ascii_lowercase)
 
@@ -11,7 +11,7 @@ try:
     assert not n.startswith("0")
     assert not n.startswith("+")
     n = int(n)
-    assert 1 <= n <= 30000
+    assert 1 <= n <= 100000
 
     assert len(lines) == n
 
@@ -31,6 +31,7 @@ except:
     exit(43)
 
 exit(42)
+
 """
 try:
     allowed = set(string.ascii_lowercase + string.digits) 
@@ -63,3 +64,4 @@ except:
     exit(43)
 
 exit(42)
+"""
