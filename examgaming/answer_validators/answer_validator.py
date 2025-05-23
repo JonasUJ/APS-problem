@@ -1,7 +1,7 @@
 import sys
 import string
 
-alpha = set(string.ascii_lowercase)
+digits = set(string.digits)
 lines = list(sys.stdin)
 
 try:
@@ -10,7 +10,7 @@ try:
     assert ans != ""
     assert ans != "\n"
     assert ans != "\r\n"
-    assert alpha.issuperset(ans.strip("\n")), ans
+    assert digits.issuperset(ans.strip("\n")), ans
     assert len(lines) == 1
 except:
     exit(43)
