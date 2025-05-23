@@ -7,9 +7,8 @@ name: Exam Gaming
   # en: 
 uuid: 8ee7605a-f919-886d-336c-f53236d4cac5
 #credits: jouj & brml & rhra
-source:
-  name: Exam Gaming
-  #url:
+source: "Exam Gaming"
+
 license: cc by-sa
 rights_owner: author
 
